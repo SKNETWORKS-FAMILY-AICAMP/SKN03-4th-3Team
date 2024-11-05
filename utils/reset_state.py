@@ -1,15 +1,3 @@
-# import streamlit as st
-
-# def reset_state():
-#     if "question" not in st.session_state:
-#         st.session_state["question"] = ""
-#     if "recommended_question" not in st.session_state:
-#         st.session_state["recommended_question"] = ""
-#     if "answer_result" not in st.session_state:
-#         st.session_state["answer_result"] = ""
-#     if "show_answer" not in st.session_state:
-#         st.session_state["show_answer"] = False
-
 import streamlit as st
 
 def reset_state():
