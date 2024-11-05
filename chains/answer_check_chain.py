@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import openai
+=======
 import streamlit as st
+>>>>>>> aff5c57e11eff4b796a0c26cb34a755135eca838
 
 class AnswerCheckChain:
     def __init__(self, llm, recommend_chain):
@@ -6,6 +10,20 @@ class AnswerCheckChain:
         self.recommend_chain = recommend_chain
 
     def __call__(self, user_answer):
+<<<<<<< HEAD
+        if user_answer.strip() == self.recommend_chain.current_answer.strip():
+            return "정답입니다!"
+        else:
+            prompt = (
+                f"사용자가 입력한 답이 틀렸습니다. 틀린 답: {user_answer}\n"
+                f"문제: {self.recommend_chain.current_question}\n"
+                f"정답: {self.recommend_chain.current_answer}\n"
+                f"해설: {self.recommend_chain.current_explanation}\n\n"
+                f"사용자의 틀린 답을 바탕으로 해설을 자세하게 설명해주세요."
+            )
+
+            response = openai.ChatCompletion.create(
+=======
         # st.session_state에서 이전 추천된 값 불러오기
         current_question = st.session_state.get("current_question")
         current_answer = st.session_state.get("current_answer")
@@ -37,6 +55,7 @@ class AnswerCheckChain:
 
             # LLM API 호출
             response = self.llm.create(
+>>>>>>> aff5c57e11eff4b796a0c26cb34a755135eca838
                 model="gpt-3.5-turbo",
                 messages=[
                     {"role": "system", "content": "You are a helpful assistant specialized in driving test questions."},
@@ -44,4 +63,7 @@ class AnswerCheckChain:
                 ]
             )
             return response['choices'][0]['message']['content']
+<<<<<<< HEAD
+=======
 
+>>>>>>> aff5c57e11eff4b796a0c26cb34a755135eca838
