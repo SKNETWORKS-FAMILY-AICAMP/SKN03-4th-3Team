@@ -299,7 +299,67 @@ from langchain.agents.output_parsers import ReActSingleInputOutputParser
 # k=5은 검색 결과를 5개까지 가져오겠다는 의미입니다
 def create_chain_agent(user_input: str, message_history:list=[], model_id:str="gpt-4o-mini"):
     load_dotenv()
-    tools = [TavilySearchResults(max_results=5)]
+    tools = [
+        TavilySearchResults(max_results=5,
+                            include_domains=["https://www.koroad.or.kr/70th/main.do",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do",
+                                            
+                                            # 서울
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=61&bcstIdx2=73",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=61&bcstIdx2=74",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=61&bcstIdx2=75",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=61&bcstIdx2=76",
+
+                                            # 부산
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=62&bcstIdx2=77",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=62&bcstIdx2=78",
+                                            
+                                            # 대구
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=63&bcstIdx2=79",
+                                            
+                                            # 인천
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=64&bcstIdx2=80",
+                                            
+                                            # 경기
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=65&bcstIdx2=81",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=65&bcstIdx2=82",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=65&bcstIdx2=83",
+
+                                            # 강원
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=66&bcstIdx2=84",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=66&bcstIdx2=85",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=66&bcstIdx2=86",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=66&bcstIdx2=87",
+                                        
+                                            # 충청
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=67&bcstIdx2=88",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=67&bcstIdx2=89",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=67&bcstIdx2=90",
+                                            
+                                            # 대전
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=68&bcstIdx2=91",
+                                            
+                                            # 전라
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=69&bcstIdx2=92",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=69&bcstIdx2=93",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=69&bcstIdx2=94",
+
+                                            # 경상
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=70&bcstIdx2=95",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=70&bcstIdx2=96",
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=70&bcstIdx2=97",
+
+                                            # 울산
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=71&bcstIdx2=98",
+
+                                            # 제주
+                                            "https://www.koroad.or.kr/main/content/view/MN05010523.do?bcstIdx1=72&bcstIdx2=99",
+                                            ],
+                            # include_patterns=[  # URL 패턴 추가
+                            #                 "bcstIdx1=[0-9]+&bcstIdx2=[0-9]+",  # 모든 숫자 조합 허용
+                            #                 ]
+                            )
+    ]
     prompt = hub.pull("hwchase17/react-chat")
     prompt = prompt.partial(
         tools=render_text_description(tools),
