@@ -28,18 +28,6 @@
   - BLIP (이미지 캡셔닝)
   - Multilingual-E5-Large (텍스트 임베딩)
 
-## 프로젝트 구조
-project/
-├── app.py # 메인 애플리케이션
-├── chains/
-│ ├── answer_check_chain.py # 답변 검증 체인
-│ └── recommend_chain.py # 문제 추천 체인
-└── utils/
-├── constant.py # 상수 정의
-├── find_similar_question.py # 유사 문제 검색
-├── prompt.py # 프롬프트 생성
-├── reset_state.py # 상태 초기화
-└── typing_effect.py # 타이핑 효과
 
 ## 코드 리뷰
 
@@ -124,3 +112,41 @@ project/
 - 임베딩 캐싱 도입
 - 배치 처리 지원
 - 메모리 사용량 최적화
+
+#### 5. 프로젝트 아키텍처 및 순서도
+
+##### 전체 시스템 아키텍처
+
+```mermaid
+flowchart TD
+    Client[클라이언트] --> API[API 서버]
+    API --> Auth[인증 서비스]
+    API --> DB[(데이터베이스)]
+    API --> Cache[(Redis 캐시)]
+    
+    subgraph Backend
+        API
+        Auth
+        DB
+        Cache
+    end
+```
+
+## 시스템 아키텍처
+
+```mermaid
+C4Context
+    title 시스템 컨텍스트 다이어그램
+    
+    Person(user, "사용자", "시스템 사용자")
+    
+    System_Boundary(system, "시스템") {
+        System(web, "웹 애플리케이션", "프론트엔드")
+        System(api, "API 서버", "백엔드")
+        SystemDb(db, "데이터베이스", "PostgreSQL")
+    }
+    
+    Rel(user, web, "사용")
+    Rel(web, api, "API 요청")
+    Rel(api, db, "데이터 저장/조회")
+```
