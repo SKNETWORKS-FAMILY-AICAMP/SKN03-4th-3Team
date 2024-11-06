@@ -11,12 +11,12 @@ st.markdown("""
             font-size: 20px; /* 서브헤더 크기 */
             color: #333; /* 연한 검은색 (약간 회색) */
         }
-        .car-image {
-            position: fixed; /* 고정 위치 */
-            bottom: 10px; /* 아래쪽에서의 간격 */
-            right: 10px; /* 오른쪽에서의 간격 */
-            width: 200px; /* 이미지 크기 조정 (필요시) */
-            z-index: 1; /* 다른 요소 아래에 표시되도록 설정 */
+        .full-width-image {
+            width: 100%; /* 전체 폭 */
+            position: absolute; /* 절대 위치 */
+            bottom: 0; /* 아래쪽에 배치 */
+            left: 0; /* 왼쪽에 배치 */
+            z-index: -1; /* 다른 요소 뒤에 표시되도록 설정 */
         }
     </style>
 """, unsafe_allow_html=True)
@@ -58,8 +58,11 @@ for item in items:
         """, unsafe_allow_html=True)
         st.checkbox("준비 완료", key=item["name"])
 
-# 오른쪽 하단에 자동차 일러스트 삽입
-st.markdown(f'<img src="https://cdn.pixabay.com/photo/2016/04/01/11/11/automobile-1300239_1280.png" class="car-image" alt="Car Illustration">', unsafe_allow_html=True)
+# # 오른쪽 하단에 자동차 일러스트 삽입
+# st.markdown(f'<img src="https://cdn.pixabay.com/photo/2016/04/01/11/11/automobile-1300239_1280.png" class="car-image" alt="Car Illustration">', unsafe_allow_html=True)
+
+# 하단에 꽉 차는 이미지 삽입
+st.markdown(f'<img src="https://cdn.pixabay.com/photo/2021/01/08/13/38/road-5899921_1280.png" class="full-width-image" alt="Road Illustration">', unsafe_allow_html=True)
 
 # 모든 체크박스가 선택되었는지 확인
 if all(st.session_state.get(item["name"], False) for item in items):
