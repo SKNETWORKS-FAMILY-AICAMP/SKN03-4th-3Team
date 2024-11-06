@@ -65,14 +65,15 @@ if prompt := st.chat_input("이미지에 대한 질문을 입력하세요..."):
         )
 
         # GPT-4 API 호출
-        response = openai.ChatCompletion.create(
+        response = openai.chat.completions.create(
             model="gpt-4",
             messages=[
                 {"role": "system", "content": "너는 교통 표지판에 대한 설명을 제공하는 도우미입니다."},
                 {"role": "user", "content": gpt_prompt}
             ]
         )
-        gpt_description = response['choices'][0]['message']['content'].strip()
+        gpt_description = response.choices[0].message.content
+        # gpt_description = response['choices'][0]['message']['content'].strip()
 
         # GPT 설명을 채팅에 추가
         st.session_state.messages.append({"role": "assistant", "type": "text", "content": gpt_description})
