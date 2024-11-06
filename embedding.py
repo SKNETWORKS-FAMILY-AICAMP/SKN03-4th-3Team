@@ -1,8 +1,12 @@
 from transformers import AutoTokenizer, AutoModel
 import torch
 import numpy as np
-from config import MODEL_NAME
+from dotenv import load_dotenv
+import os
 
+# 환경 변수 로드
+load_dotenv()
+MODEL_NAME = os.getenv("MODEL_NAME")
 # 텍스트 임베딩
 
 # 모델 및 토크나이저 로드
