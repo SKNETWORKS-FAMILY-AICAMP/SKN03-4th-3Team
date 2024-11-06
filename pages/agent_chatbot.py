@@ -7,7 +7,7 @@ load_dotenv()
 from langchain_my.constant import CHATBOT_MESSAGE, CHATBOT_ROLE
 from langchain_my.prompt import create_message
 from langchain_my.chain import create_chain_agent
-
+from langchain.memory import ConversationBufferMemory
 
 def app():
     st.title("Agent Chat Bot")
@@ -42,12 +42,15 @@ def app():
             # 이력 추가 
             # 내용  ::  message = {"role":"", "content":""}
             st.session_state.messages.append(message)
-
+            if "memory" not in st.session_state:
+                st.session_state.memory = ConversationBufferMemory(memory_key="chat_history")
             # # 챗봇 답변 
             with st.chat_message(CHATBOT_ROLE.assistant.name):
                 
                 assistant_response = st.write(create_chain_agent(prompt, message_history = st.session_state.messages))
                 print("작동하는건가?")
+                st.markdown(assistant_response)
+                memory = st.session_state.memory 
                 # assistant_response = st.session_state.chain(prompt)
             # st.markdown(assistant_response)
             #     # assistant_response = response_from_llm(prompt)
