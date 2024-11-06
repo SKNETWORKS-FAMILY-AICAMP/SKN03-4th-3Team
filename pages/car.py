@@ -30,19 +30,19 @@ uploaded_file = st.file_uploader("이미지를 업로드하세요", type=["jpg",
 # 업로드된 이미지가 있으면 세션 상태에 저장하고 표시
 if uploaded_file:
     image = Image.open(uploaded_file)
-    # 이미지를 세션 상태에 저장 (이미지를 한 번만 저장)
     if "uploaded_image" not in st.session_state:
         st.session_state.uploaded_image = image
         st.session_state.messages.append({"role": "user", "type": "image", "content": image})
 
 # 이전 채팅 메시지와 이미지를 화면에 표시
 for message in st.session_state.messages:
-    if message["type"] == "text":
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
-    elif message["type"] == "image":
-        with st.chat_message("user"):
-            st.image(message["content"], caption="업로드된 이미지", use_column_width=True)
+    if isinstance(message, dict) and "type" in message:
+        if message["type"] == "text":
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
+        elif message["type"] == "image":
+            with st.chat_message("user"):
+                st.image(message["content"], caption="업로드된 이미지", use_column_width=True)
 
 # 사용자가 입력한 질문 받기
 if prompt := st.chat_input("이미지에 대한 질문을 입력하세요..."):
@@ -65,14 +65,14 @@ if prompt := st.chat_input("이미지에 대한 질문을 입력하세요..."):
         )
 
         # GPT-4 API 호출
-        response = openai.ChatCompletion.create(
+        response = openai.chat.completions.create(
             model="gpt-4",
             messages=[
                 {"role": "system", "content": "너는 교통 표지판에 대한 설명을 제공하는 도우미입니다."},
                 {"role": "user", "content": gpt_prompt}
             ]
         )
-        gpt_description = response['choices'][0]['message']['content'].strip()
+        gpt_description = response.choices[0].message.content.strip()
 
         # GPT 설명을 채팅에 추가
         st.session_state.messages.append({"role": "assistant", "type": "text", "content": gpt_description})

@@ -1,7 +1,7 @@
 import streamlit as st
 import time
 
-def display_typing_effect(text, delay=0.05):
+def display_typing_effect(text, delay=0.03):
     output = st.empty()
     typed_text = ""
     for char in text:
