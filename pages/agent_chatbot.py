@@ -7,7 +7,7 @@ load_dotenv()
 from langchain_my.constant import CHATBOT_MESSAGE, CHATBOT_ROLE
 from langchain_my.prompt import create_message
 from langchain_my.chain import create_chain_agent
-from langchain.memory import ConversationBufferMemory
+
 
 def app():
     st.title("Agent Chat Bot")
@@ -18,11 +18,16 @@ def app():
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
-    # 저장한 메세지를 화면에 표현 
+    # # 저장한 메세지를 화면에 표현 
+    # for message in st.session_state.messages:
+    #     if message[CHATBOT_MESSAGE.role.name] in CHATBOT_ROLE.__members__:
+    #         with st.chat_message(message[CHATBOT_MESSAGE.role.name]):
+    #             st.markdown(message[CHATBOT_MESSAGE.content.name])
+
+    # 저장된 메시지 표시
     for message in st.session_state.messages:
-        if message[CHATBOT_MESSAGE.role.name] in CHATBOT_ROLE.__members__:
-            with st.chat_message(message[CHATBOT_MESSAGE.role.name]):
-                st.markdown(message[CHATBOT_MESSAGE.content.name])
+        with st.chat_message(message[CHATBOT_MESSAGE.role.name]):
+            st.markdown(message[CHATBOT_MESSAGE.content.name])
 
 
     # 사용자 입력
@@ -41,16 +46,16 @@ def app():
             
             # 이력 추가 
             # 내용  ::  message = {"role":"", "content":""}
-            st.session_state.messages.append(message)
-            if "memory" not in st.session_state:
-                st.session_state.memory = ConversationBufferMemory(memory_key="chat_history")
+            st.session_state.messages.append(
+                create_message(role=CHATBOT_ROLE.user, prompt=prompt)
+            )
+
             # # 챗봇 답변 
             with st.chat_message(CHATBOT_ROLE.assistant.name):
                 
-                assistant_response = st.write(create_chain_agent(prompt, message_history = st.session_state.messages))
-                print("작동하는건가?")
-                st.markdown(assistant_response)
-                memory = st.session_state.memory 
+                assistant_response = create_chain_agent(prompt, message_history = st.session_state.messages)
+                st.write(assistant_response)  # 응답 표시
+                
                 # assistant_response = st.session_state.chain(prompt)
             # st.markdown(assistant_response)
             #     # assistant_response = response_from_llm(prompt)
@@ -62,3 +67,6 @@ def app():
                     create_message(role=CHATBOT_ROLE.assistant, prompt=assistant_response))
 
 app()
+# 메모리 기억장치
+# 답변 이력 유지
+# 답변 시 지도내용 추가
