@@ -60,3 +60,5 @@ def app():
                 # 이력 추가 
                 st.session_state.messages.append(
                     create_message(role=CHATBOT_ROLE.assistant, prompt=assistant_response))
+
+app()
