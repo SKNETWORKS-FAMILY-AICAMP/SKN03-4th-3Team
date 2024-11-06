@@ -301,6 +301,7 @@ def create_chain_agent(user_input: str, message_history:list=[], model_id:str="g
     load_dotenv()
     tools = [
         TavilySearchResults(max_results=5,
+                            
                             include_domains=["https://www.koroad.or.kr/70th/main.do",
                                             "https://www.koroad.or.kr/main/content/view/MN05010523.do",
                                             
@@ -365,7 +366,14 @@ def create_chain_agent(user_input: str, message_history:list=[], model_id:str="g
         tools=render_text_description(tools),
         tool_names=", ".join([t.name for t in tools])
     )
-    memory = ConversationBufferMemory(memory_key="chat_history")
+
+
+    if "memory" not in st.session_state:
+        st.session_state.memory = ConversationBufferMemory(
+            memory_key="chat_history",
+            return_messages=True
+        )
+    # memory = ConversationBufferMemory(memory_key="chat_history")
 
     llm = create_model()
     llm_with_stop = llm.bind(stop=["\nObservation"])
@@ -384,7 +392,7 @@ def create_chain_agent(user_input: str, message_history:list=[], model_id:str="g
     agent_executor = AgentExecutor(
         agent=agent,
         tools=tools,
-        memory=memory,
+        memory=st.session_state.memory,
         verbose=True,
     )
 
