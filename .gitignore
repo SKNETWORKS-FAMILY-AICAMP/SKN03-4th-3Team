@@ -1,3 +1,6 @@
-.env
 .venv
+examples
 __pycache__
+chatbot_streamlit.zip
+config.py
+.env

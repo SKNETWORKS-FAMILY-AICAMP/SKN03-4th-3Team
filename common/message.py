@@ -12,12 +12,9 @@ def __check_message(role:CHATBOT_ROLE, prompt:str):
 
 def create_message(role:CHATBOT_ROLE, prompt:str):
     if __check_message(role, prompt):
-        return
+        return 
 
     return {
         CHATBOT_MESSAGE.role.name: role.name,
         CHATBOT_MESSAGE.content.name: prompt
     }
-
-
-
