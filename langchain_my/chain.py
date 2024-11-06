@@ -299,7 +299,12 @@ from langchain.agents.output_parsers import ReActSingleInputOutputParser
 # k=5은 검색 결과를 5개까지 가져오겠다는 의미입니다
 def create_chain_agent(user_input: str, message_history:list=[], model_id:str="gpt-4o-mini"):
     load_dotenv()
-    tools = [TavilySearchResults(max_results=5)]
+    tools = [
+        TavilySearchResults(max_results=5,
+                            include_domains=["https://www.koroad.or.kr/70th/main.do",
+                                            "naver.com"]
+                            )
+    ]
     prompt = hub.pull("hwchase17/react-chat")
     prompt = prompt.partial(
         tools=render_text_description(tools),
