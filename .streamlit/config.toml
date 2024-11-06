@@ -6,4 +6,8 @@ textColor = "#000000"            # 텍스트 색상
 font = "sans serif"              # 기본 글꼴 (sans serif, serif, monospace 등)
 
 [server]
+<<<<<<< HEAD
 headless = true                   # 서버 설정
+=======
+headless = true                   # 서버 설정
+>>>>>>> d43ed311a022636ec41ad44fb510511dd2a9ffed

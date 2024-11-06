@@ -27,6 +27,13 @@ st.subheader("이미지를 업로드하고 이미지에 대해 질문하세요."
 # 이미지 업로드 영역
 uploaded_file = st.file_uploader("이미지를 업로드하세요", type=["jpg", "jpeg", "png"])
 
+# 업로드된 이미지가 있으면 세션 상태에 저장하고 표시
+if uploaded_file:
+    image = Image.open(uploaded_file)
+    # 이미지를 세션 상태에 저장 (이미지를 한 번만 저장)
+    if "uploaded_image" not in st.session_state:
+        st.session_state.uploaded_image = image
+        st.session_state.messages.append({"role": "user", "type": "image", "content": image})
 
 # 이전 채팅 메시지와 이미지를 화면에 표시
 for message in st.session_state.messages:
@@ -37,30 +44,16 @@ for message in st.session_state.messages:
         with st.chat_message("user"):
             st.image(message["content"], caption="업로드된 이미지", use_column_width=True)
 
-# 새로운 이미지 업로드 
-if uploaded_file:
-    image = Image.open(uploaded_file)
-    # 채팅 형식으로 이미지 표시
-    with st.chat_message("user"):
-        st.image(image, caption="업로드된 이미지", use_column_width=True)
-
 # 사용자가 입력한 질문 받기
 if prompt := st.chat_input("이미지에 대한 질문을 입력하세요..."):
-    
     if uploaded_file is None:
         st.error("먼저 이미지를 업로드해주세요.")
     else:
         # 사용자가 입력한 질문을 채팅에 추가
         st.session_state.messages.append({"role": "user", "type": "text", "content": prompt})
-        ## 새로운 이미지 메시지 추가
-        st.session_state.messages.append({"role": "user", "type": "image", "content": image})
-
-        # 질문을 즉시 화면에 표시
-        with st.chat_message("user"):
-            st.markdown(prompt)
 
         # BLIP 모델을 사용해 기본 설명 생성
-        inputs = processor(images=image, return_tensors="pt")
+        inputs = processor(images=st.session_state.uploaded_image, return_tensors="pt")
         out = model.generate(**inputs)
         blip_description = processor.decode(out[0], skip_special_tokens=True)
 
