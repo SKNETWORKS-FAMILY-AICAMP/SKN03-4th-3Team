@@ -28,10 +28,6 @@
   - BLIP (이미지 캡셔닝)
   - Multilingual-E5-Large (텍스트 임베딩)
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3832c8ba9cea9666f91d4dd12af4cea15ecf5ad6
 ## 코드 리뷰
 
 ### 주요 컴포넌트 분석
@@ -115,3 +111,57 @@
 - 임베딩 캐싱 도입
 - 배치 처리 지원
 - 메모리 사용량 최적화
+### 아키텍쳐
+
+```mermaid
+graph TD
+    A[app.py] --> B[chains/]
+    A --> C[utils/]
+    
+    subgraph chains
+        B1[recommend_chain.py]
+        B2[answer_check_chain.py]
+    end
+    
+    subgraph utils
+        C1[constant.py]
+        C2[find_similar_question.py]
+        C3[prompt.py]
+        C4[reset_state.py]
+        C5[typing_effect.py]
+    end
+    
+    D[embedding.py]
+    
+    A --> B1
+    A --> B2
+    B1 --> C2
+    C2 --> D
+    B2 --> |OpenAI API| E[외부 API]
+```
+
+###실행 순서도
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant App
+    participant RecommendChain
+    participant AnswerCheckChain
+    participant Embedding
+    participant OpenAI
+
+    User->>App: 질문 입력
+    App->>RecommendChain: 질문 전달
+    RecommendChain->>Embedding: 텍스트 임베딩 요청
+    Embedding-->>RecommendChain: 임베딩 벡터 반환
+    RecommendChain-->>App: 추천 문제 반환
+    App->>User: 문제 표시
+    
+    User->>App: 답변 입력
+    App->>AnswerCheckChain: 답변 검증 요청
+    AnswerCheckChain->>OpenAI: GPT API 호출
+    OpenAI-->>AnswerCheckChain: 검증 결과 반환
+    AnswerCheckChain-->>App: 결과 반환
+    App->>User: 결과 표시
+```
