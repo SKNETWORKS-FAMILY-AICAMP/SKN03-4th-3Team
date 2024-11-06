@@ -9,9 +9,8 @@ from utils.constant import CHATBOT_ROLE, CHATBOT_MESSAGE
 from utils.prompt import create_message
 import re
 
-# 체인 초기화   
 recommend_chain = RecommendQuestionChain(find_similar_fn=find_similar_question)
-answer_check_chain = AnswerCheckChain(llm=openai.ChatCompletion, recommend_chain=recommend_chain)
+answer_check_chain = AnswerCheckChain(llm=openai.OpenAI(), recommend_chain=recommend_chain)  # openai.Client() -> openai.OpenAI()
 
 # UI 설정
 st.set_page_config(page_title="운전면허 필기 시험 챗봇", layout="centered")

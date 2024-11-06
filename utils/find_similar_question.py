@@ -2,7 +2,12 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from embedding import embed_text
-from config import DATA_PATH
+from dotenv import load_dotenv
+import os
+
+# 환경 변수 로드
+load_dotenv()
+DATA_PATH = os.getenv("DATA_PATH")
 
 # 데이터 로드 및 유사도 기반 문제 추천 함수
 df = pd.read_csv(DATA_PATH)
