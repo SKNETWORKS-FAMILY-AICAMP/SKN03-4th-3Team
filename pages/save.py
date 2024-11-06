@@ -48,4 +48,3 @@ if st.session_state.incorrect_questions:
         st.markdown("---")  # 구분선을 추가하여 문제 구분
 else:
     st.info("아직 틀린 문제가 저장되지 않았습니다.")
-
