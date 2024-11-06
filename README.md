@@ -28,19 +28,6 @@
   - BLIP (이미지 캡셔닝)
   - Multilingual-E5-Large (텍스트 임베딩)
 
-## 프로젝트 구조
-project/
-├── app.py # 메인 애플리케이션
-├── chains/
-│ ├── answer_check_chain.py # 답변 검증 체인
-│ └── recommend_chain.py # 문제 추천 체인
-└── utils/
-├── constant.py # 상수 정의
-├── find_similar_question.py # 유사 문제 검색
-├── prompt.py # 프롬프트 생성
-├── reset_state.py # 상태 초기화
-└── typing_effect.py # 타이핑 효과
-
 ## 코드 리뷰
 
 ### 주요 컴포넌트 분석
