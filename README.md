@@ -1,5 +1,13 @@
 # 무면허라이더 - AI 기반 운전면허 학습 도우미
 
+## 팀원 소개
+# 🐻 1. 팀 소개 🐻
+|김원철|박규택|이주원|정재현|허지원|
+|:---:|:---:|:---:|:---:|:---:|
+|<img src="https://i.ytimg.com/vi/SVyVlHUMjSM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAYLstFr6SllE04oBlOw_eSSfScaQ"  width="150" height="150"/> |<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150609_245%2Frmxtkfkd11de_1433841374678NOqpo_PNG%2Ff2.PNG&type=sc960_832"  width="150" height="150"/> |<img src="https://image.aladin.co.kr/product/31290/46/letslook/K512832670_t5.jpg"  width="150" height="150"/>  | <img src="https://mblogthumb-phinf.pstatic.net/MjAyMjAxMDdfNDIg/MDAxNjQxNDk1NjUyMzc1.0CXaVfxAjC6FQdNXWdDxOuudVnEowsqG7yspTesZx9Mg.jv3IZZlJ6Bjj7Ed2y7MoapuESmy3zT2ZsgHKScFrf2og.JPEG.kolisu0529/IMG_4402.JPG?type=w800"  width="150" height="150"/> |<img src="https://upload3.inven.co.kr/upload/2022/06/20/bbs/i14951952770.jpg?MW=800"  width="150" height="150"/>  |
+| <center> 면허 있음 </center> | <center> 면허 없음 </center> | <center> 면허 없음 </center> | <center> 면허 있음 </center> | <center> 면허 없음 </center> |
+---
+
 ## 프로젝트 소개
 AI 기술을 활용한 운전면허 필기시험 학습 도우미 서비스입니다. 사용자의 질문에 맞춤형 문제를 추천하고, 답변에 대한 상세 해설을 제공하며 교통 표지판 인식 기능을 포함합니다.
 
