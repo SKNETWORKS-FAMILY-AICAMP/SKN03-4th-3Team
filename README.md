@@ -39,7 +39,7 @@ streamlit run app.py
 </div>
 
 ### 대화형 학습 인터페이스
-<div style="display: flex; justify-content: center; gap: 20px;">
+<div align="center">
   <div>
     <img src="images/agent_구현_사진.png" width="700"/>
     <p align="center"><em>시험장 위치 안내</em></p>
@@ -51,7 +51,7 @@ streamlit run app.py
 </div>
 
 ### 교통 표지판 인식
-<div style="display: flex; justify-content: center; gap: 20px;">
+<div align="center">
   <div>
     <img src="images/car_구현_사진_1.png" width="700"/>
     <p align="center"><em>교통 표지판 업로드</em></p>
