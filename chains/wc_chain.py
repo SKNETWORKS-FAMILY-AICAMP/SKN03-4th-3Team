@@ -21,7 +21,6 @@ from langchain_openai import ChatOpenAI
 import streamlit as st
 
 load_dotenv()
-DATA_PATH = os.getenv("DATA_PATH_2")
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 # OpenAI 클라이언트 대신 ChatOpenAI 모델 사용
@@ -35,7 +34,7 @@ prompt = PromptTemplate(
 # LLMChain 생성
 llm_chain = LLMChain(llm=chat_model, prompt=prompt)
 def csv_load():
-    loader = CSVLoader(file_path=DATA_PATH, encoding='utf-8-sig', source_column='문제')
+    loader = CSVLoader(file_path='/Users/gim-woncheol/Desktop/nolicense_rider/SKN03-4th-3Team/data/문제_정리.csv', encoding='utf-8-sig', source_column='문제')
     return loader.load()
 
 def process_data(data):
@@ -152,9 +151,19 @@ tools = [
 # 에이전트 출력 파서
 class CustomOutputParser(AgentOutputParser):
     def parse(self, llm_output: str) -> Union[AgentAction, AgentFinish]:
-        if "Final Answer:" in llm_output:
+        # 운전면허 문제 파싱
+        if "문제:" in llm_output:
+            question = llm_output.split("문제:")[-1].split("답변을 입력해주세요.")[0].strip()
             return AgentFinish(
-                return_values={"output": llm_output.split("Final Answer:")[-1].strip()},
+                return_values={"output": f"문제: {question}\n\n답변을 입력해주세요."},
+                log=llm_output,
+            )
+        
+        # 답변 체크 결과 파싱
+        if "사용자가 선택한 답은" in llm_output:
+            check_result = llm_output.strip()
+            return AgentFinish(
+                return_values={"output": check_result},
                 log=llm_output,
             )
         
