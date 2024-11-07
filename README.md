@@ -4,11 +4,7 @@
 ###  팀원 닮은꼴 소개 
 |김원철|박규택|정재현|허지원|이주원
 |:---:|:---:|:---:|:---:|:---:|
-|<img src="https://i.ytimg.com/vi/SVyVlHUMjSM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAYLstFr6SllE04oBlOw_eSSfScaQ"  width="150" height="150"/>
-|<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEyMjhfMjI4%2FMDAxNzAzNzE5NDY5NDk3.3prM1USHn_FvMKUf2G2e6s-_kBkCzYvhOQNSKfMjy4og.WELyMb9YQn1AeiLpEWkejH0I2Y4UGlL8hViQ_LM_9ZIg.JPEG.caocao1990%2FUntitled-12.jpg&type=sc960_832"  width="150" height="150"/>  
-| <img src="https://mblogthumb-phinf.pstatic.net/MjAyMjAxMDdfNDIg/MDAxNjQxNDk1NjUyMzc1.0CXaVfxAjC6FQdNXWdDxOuudVnEowsqG7yspTesZx9Mg.jv3IZZlJ6Bjj7Ed2y7MoapuESmy3zT2ZsgHKScFrf2og.JPEG.kolisu0529/IMG_4402.JPG?type=w800"  width="150" height="150"/> 
-| <img src="https://image.aladin.co.kr/product/31290/46/letslook/K512832670_t5.jpg"  width="150" height="150"/>  
-| <img src="https://cdn.sketchpan.com/member/a/aoingO/draw/1332085735576/0.png"  width="150" height="150"/>  
+|<img src="https://i.ytimg.com/vi/SVyVlHUMjSM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAYLstFr6SllE04oBlOw_eSSfScaQ"  width="150" height="150"/>|<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEyMjhfMjI4%2FMDAxNzAzNzE5NDY5NDk3.3prM1USHn_FvMKUf2G2e6s-_kBkCzYvhOQNSKfMjy4og.WELyMb9YQn1AeiLpEWkejH0I2Y4UGlL8hViQ_LM_9ZIg.JPEG.caocao1990%2FUntitled-12.jpg&type=sc960_832"  width="150" height="150"/>  | <img src="https://mblogthumb-phinf.pstatic.net/MjAyMjAxMDdfNDIg/MDAxNjQxNDk1NjUyMzc1.0CXaVfxAjC6FQdNXWdDxOuudVnEowsqG7yspTesZx9Mg.jv3IZZlJ6Bjj7Ed2y7MoapuESmy3zT2ZsgHKScFrf2og.JPEG.kolisu0529/IMG_4402.JPG?type=w800"  width="150" height="150"/> | <img src="https://image.aladin.co.kr/product/31290/46/letslook/K512832670_t5.jpg"  width="150" height="150"/>  | <img src="https://cdn.sketchpan.com/member/a/aoingO/draw/1332085735576/0.png"  width="150" height="150"/>  
 | <center> 면허 있음 </center> | <center> 면허 없음 </center> | <center> 면허 있음(팀장) </center> | <center> 면허 없음 </center> | <center> 면허 없음 </center> |
 ---
 
