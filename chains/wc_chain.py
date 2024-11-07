@@ -21,6 +21,7 @@ from langchain_openai import ChatOpenAI
 import streamlit as st
 
 load_dotenv()
+DATA_PATH = os.getenv("DATA_PATH_2")
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 # OpenAI 클라이언트 대신 ChatOpenAI 모델 사용
@@ -34,7 +35,7 @@ prompt = PromptTemplate(
 # LLMChain 생성
 llm_chain = LLMChain(llm=chat_model, prompt=prompt)
 def csv_load():
-    loader = CSVLoader(file_path='/Users/gim-woncheol/Desktop/nolicense_rider/SKN03-4th-3Team/data/문제 정리.csv', encoding='utf-8-sig', source_column='문제')
+    loader = CSVLoader(file_path=DATA_PATH, encoding='utf-8-sig', source_column='문제')
     return loader.load()
 
 def process_data(data):
