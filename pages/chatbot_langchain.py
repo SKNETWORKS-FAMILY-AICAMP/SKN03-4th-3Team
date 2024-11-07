@@ -6,9 +6,6 @@ from chains.wc_chain import create_agent, run_agent, initialize_data
 
 load_dotenv()
 
-
-
-
 def app():
     st.title("운전면허 문제 챗봇")
 
