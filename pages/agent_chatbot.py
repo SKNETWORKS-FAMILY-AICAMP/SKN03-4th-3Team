@@ -1,10 +1,11 @@
 import streamlit as st
 from dotenv import load_dotenv
-load_dotenv()
-
 from chains.langchain_my.constant import CHATBOT_MESSAGE, CHATBOT_ROLE
 from chains.langchain_my.prompt import create_message
 from chains.langchain_my.chain import create_chain_agent
+
+# 로딩
+load_dotenv()
 
 def init_page_state():
     if "agent_chatbot" not in st.session_state:
