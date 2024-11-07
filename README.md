@@ -38,37 +38,6 @@ AI 기술을 활용한 운전면허 필기시험 학습 도우미 서비스입�
 
 ## 코드 리뷰
 
-## 구조
-
-```
-SKN03-4st-2Team
-├─ .gitignore
-├─ .streamlit
-│  └─ config.toml
-├─ app.py
-├─ chains
-│  ├─ answer_check_chain.py
-│  └─ recommend_chain.py
-├─ data
-│  └─ 임베딩된_문제.csv
-├─ embedding.py
-├─ image_to_text_finetuning.ipynb
-├─ main.py
-├─ pages
-│  ├─ car.py
-│  └─ ready.py
-├─ README.md
-├─ requirements.txt
-└─ utils
-   ├─ constant.py
-   ├─ find_similar_question.py
-   ├─ prompt.py
-   ├─ reset_state.py
-   └─ typing_effect.py
-
-```
-
-
 ### 주요 컴포넌트 분석
 
 #### app.py
