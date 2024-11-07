@@ -1,4 +1,4 @@
-class AnswerCheckChain2:
+class CheckAnswer:
     def __init__(self, client):
         self.client = client
 

@@ -1,5 +1,5 @@
-from langchain_my.prompt import create_prompt, create_message
-from langchain_my.model import create_model
+from chains.langchain_my.prompt import create_prompt, create_message
+from chains.langchain_my.model import create_model
 import streamlit as st
 from common.constant import CHATBOT_ROLE
 import time
@@ -171,9 +171,9 @@ def get_today(a):
     return datetime.today().strftime("%b-%d")
 
 from langchain_core.output_parsers import StrOutputParser
-from langchain_my.prompt import create_prompt_lambda
+from chains.langchain_my.prompt import create_prompt_lambda
 from langchain_core.runnables import RunnableLambda, RunnablePassthrough
-from langchain_my.model import create_model
+from chains.langchain_my.model import create_model
 
 def create_chain_lambda(user_input: int, message_history:list=[]):
     if len(message_history) == 0:
