@@ -4,12 +4,26 @@
 ###  팀원 닮은꼴 소개 
 |김원철|박규택|정재현|허지원|이주원
 |:---:|:---:|:---:|:---:|:---:|
-|<img src="https://i.ytimg.com/vi/SVyVlHUMjSM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAYLstFr6SllE04oBlOw_eSSfScaQ"  width="150" height="150"/> |<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEyMjhfMjI4%2FMDAxNzAzNzE5NDY5NDk3.3prM1USHn_FvMKUf2G2e6s-_kBkCzYvhOQNSKfMjy4og.WELyMb9YQn1AeiLpEWkejH0I2Y4UGlL8hViQ_LM_9ZIg.JPEG.caocao1990%2FUntitled-12.jpg&type=sc960_832"  width="150" height="150"/>  | <img src="https://i.namu.wiki/i/lwgo8HESi5bQw3QtjMzRmJIG-nca97WHdTrp6LybH74QbWlsyN8-KHP3Hd5SfAKOppzwyU5Es6PdUZifInC_mtauuH9T7NnrZXMpJHEWITMbUskPa6XD-pga2TCK8gmqK81llE2fb-a1gguWB5EkeA.webp"  width="150" height="150"/> |<img src="https://image.aladin.co.kr/product/31290/46/letslook/K512832670_t5.jpg"  width="150" height="150"/>  |
-| <center> 면허 있음 </center> | <center> 면허 없음 </center> | <center> 면허 있음(셀카임) </center> | <center> 면허 없음(셀카임) </center> | <center> 면허 없음 </center> |
+|<img src="https://i.ytimg.com/vi/SVyVlHUMjSM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAYLstFr6SllE04oBlOw_eSSfScaQ"  width="150" height="150"/>
+|<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEyMjhfMjI4%2FMDAxNzAzNzE5NDY5NDk3.3prM1USHn_FvMKUf2G2e6s-_kBkCzYvhOQNSKfMjy4og.WELyMb9YQn1AeiLpEWkejH0I2Y4UGlL8hViQ_LM_9ZIg.JPEG.caocao1990%2FUntitled-12.jpg&type=sc960_832"  width="150" height="150"/>  
+| <img src="https://mblogthumb-phinf.pstatic.net/MjAyMjAxMDdfNDIg/MDAxNjQxNDk1NjUyMzc1.0CXaVfxAjC6FQdNXWdDxOuudVnEowsqG7yspTesZx9Mg.jv3IZZlJ6Bjj7Ed2y7MoapuESmy3zT2ZsgHKScFrf2og.JPEG.kolisu0529/IMG_4402.JPG?type=w800"  width="150" height="150"/> 
+| <img src="https://image.aladin.co.kr/product/31290/46/letslook/K512832670_t5.jpg"  width="150" height="150"/>  
+| <img src="https://cdn.sketchpan.com/member/a/aoingO/draw/1332085735576/0.png"  width="150" height="150"/>  
+| <center> 면허 있음 </center> | <center> 면허 없음 </center> | <center> 면허 있음(팀장) </center> | <center> 면허 없음 </center> | <center> 면허 없음 </center> |
 ---
 
 ## 프로젝트 소개
 AI 기술을 활용한 운전면허 필기시험 학습 도우미 서비스입니다. 사용자의 질문에 맞춤형 문제를 추천하고, 답변에 대한 상세 해설을 제공하며 교통 표지판 인식 기능을 포함합니다.
+
+## 프로젝트 실행 방법
+To install the required packages and run the application, use the following commands:
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+## 구현 화면
+
 
 ## 주요 기능
 
