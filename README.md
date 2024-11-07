@@ -39,25 +39,25 @@ streamlit run app.py
 </div>
 
 ### 대화형 학습 인터페이스
-<div style="display: flex; justify-content: center; gap: 20px;">
+<div align="center">
   <div>
-    <img src="images/agent_구현_사진.png" width="400"/>
+    <img src="images/agent_구현_사진.png" width="700"/>
     <p align="center"><em>시험장 위치 안내</em></p>
   </div>
   <div>
-    <img src="images/chatbot_langchain_구현_사진.png" width="400"/>
+    <img src="images/chatbot_langchain_구현_사진.png" width="700"/>
     <p align="center"><em>AI 챗봇 문제 질문</em></p>
   </div>
 </div>
 
 ### 교통 표지판 인식
-<div style="display: flex; justify-content: center; gap: 20px;">
+<div align="center">
   <div>
-    <img src="images/car_구현_사진_1.png" width="400"/>
+    <img src="images/car_구현_사진_1.png" width="700"/>
     <p align="center"><em>교통 표지판 업로드</em></p>
   </div>
   <div>
-    <img src="images/car_구현_사진_2.png" width="400"/>
+    <img src="images/car_구현_사진_2.png" width="700"/>
     <p align="center"><em>분석 상세 설명 생성</em></p>
   </div>
   <p><em>BLIP 모델을 활용한 실시간 교통 표지판 인식 및 설명</em></p>
